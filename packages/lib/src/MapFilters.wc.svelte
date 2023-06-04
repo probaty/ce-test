@@ -8,6 +8,7 @@
 	/**
 	 * Props
 	 */
+	// TODO: add storybook
 	export let collapsed: boolean = false;
 	export let show_all: boolean = false;
 	export let filters: IFilter[] = [];
