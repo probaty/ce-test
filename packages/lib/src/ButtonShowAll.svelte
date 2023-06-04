@@ -16,12 +16,18 @@
     background: #595959;
     border: none;
     transition: background 0.3s;
+    font-weight: 500;
+font-size: 13px;
+color: #bdbdbd;
+
 
     &:hover {
       background: #636363;
     }
     &.active {
       background: #dadada;
+      color: #2f2f2f;
+
 
       &:hover {
         background: #f7f7f7;

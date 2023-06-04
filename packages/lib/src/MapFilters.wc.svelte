@@ -8,9 +8,10 @@
 	/**
 	 * Props
 	 */
-	export let isCollapsed: boolean = false;
-	export let showAll: boolean = true;
+	export let collapsed: boolean = false;
+	export let show_all: boolean = false;
 	export let filters: IFilter[] = [];
+
 
 	/**
 	 * Hacks
@@ -28,7 +29,7 @@
 </script>
 
 {#if mounted}
-	<MapFilters {filters} {isCollapsed} {showAll} />
+	<MapFilters {filters} {collapsed} {show_all} />
 {/if}
 <slot />
 

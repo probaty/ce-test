@@ -1,19 +1,17 @@
 const isSvg = (svg: string) => {
-  return svg.includes("<svg");
+  const reg = /<svg\b[^>]*?(?:viewBox=\"(\b[^"]*)\")?>([\s\S]*?)<\/svg>/gi
+  return reg.test(svg)
 };
 
 export const loadSvg = async (svg: string) => {
   if (isSvg(svg)) {
     return svg;
   }
-  try {
-    const response = await fetch(svg);
-    const svgText = await response.text();
-    if (isSvg(svgText)) {
-      return svgText;
-    }
-    throw new Error("Invalid SVG");
-  } catch (error) {
-    console.error(error);
+
+  const response = await fetch(svg);
+  const svgText = await response.text();
+  if (isSvg(svgText)) {
+    return svgText;
   }
-};
+  throw new Error(`Invalid SVG: ${svg}`);
+}

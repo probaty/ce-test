@@ -13,6 +13,8 @@
     <div class="icon">
       {@html iconData}
     </div>
+  {:catch}
+    <div class="error-box"></div>
   {/await}
 </button>
 
@@ -28,14 +30,21 @@
     border: none;
     transition: background 0.3s;
 
-    &:hover {
-      background: #636363;
+    .error-box {
+      width: 15px;
+      height: 15px;
+      background: red;
     }
-    &.active {
-      background: #dadada;
 
-      &:hover {
-        background: #f7f7f7;
+    .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      --icon-bg-color: #959697;
+      --icon-foreground-color: #595959;
+
+      :global(svg *) {
+        transition: all 0.3s;
       }
     }
 
@@ -45,6 +54,28 @@
       color: #bdbdbd;
       transition: color 0.3s;
     }
+
+    &:hover {
+      background: #636363;
+    }
+    &.active {
+      background: #dadada;
+
+      .text {
+          color: #2f2f2f;
+      }
+
+      .icon {
+        --icon-bg-color: unset;
+      --icon-foreground-color: unset;
+      }
+
+      &:hover {
+        background: #f7f7f7;
+      }
+    }
+
+
   }
 
 </style>
